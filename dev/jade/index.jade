@@ -1,0 +1,26 @@
+//-
+    titles : pagetitle
+    description : meta description
+    keywords : meta keywords
+    homepage : Web Site URI
+
+extends _layout
+block title
+    title= 'トップページ | '+titles
+block append meta
+    //- include _inc_meta_facebook
+    //- include _inc_meta_twitter
+block append links
+    link(rel='stylesheet',href='css/index.css')
+block body
+    header.header
+        h1
+            a(href='./') #{titles}
+    // /.header
+
+    section.mv
+      
+    // /.mv
+
+    - manuObjs[0].flag = true;
+    include _nav

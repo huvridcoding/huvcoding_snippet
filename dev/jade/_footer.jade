@@ -1,0 +1,25 @@
+//- footer.jade
+- var fnav = [];
+- fnav.push({flag: false, className: "link",name: "リンク集", href: '/link/',src: ''});
+- fnav.push({flag: false, className: "contact",name: "お問い合わせ", href: '/contact/',src: ''});
+- fnav.push({flag: false, className: "sitemap",name: "サイトマップ", href: '/sitemap/',src: ''});
+- fnav.push({flag: false, className: "policy",name: "プライバシーポリシー", href: '/policy/',src: ''});
+
+// .footer
+footer.footer
+  section.footer-nav
+    ul.footer-nav-list
+      -for(var i=0; i<fmenuObjs.length; i++) {
+       - var classNames = 'footer-nav-item_' + fmenuObjs[i].className
+       - var att = 'footer-nav-item ' + classNames;
+       -if(fmenuObjs[i].flag) {
+         - att = 'footer-nav-item ' + classNames + ' is-footter-item_on';
+       -}else if(i==0) {
+         - att = classNames;
+       -}
+       li(class=att)
+         a(href='#{fmenuObjs[i].href}') #{fmenuObjs[i].name}
+      -}
+  section.footer-copy
+    p.footer-copy_text Copyright(C)2016 xxxxx All rights reserved.
+// /.footer

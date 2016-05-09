@@ -1,0 +1,64 @@
+// _mixin.scss
+
+// ---------------------------
+// Font Awesome
+// ---------------------------
+@mixin fas {
+    font-family: FontAwesome;
+}
+
+// ---------------------------
+// Clearfix
+// ---------------------------
+@mixin cf {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+// ---------------------------
+// Media Query Breakpoints
+//  wide : 1280px 
+//  pc : 1024px
+//  tablet : 768px
+//  mobile : 568px
+//
+//  Export em calc
+//  Example : 1280px to em is ...
+//  1280px / 16px(Browser Default Text Size) = 80em
+// ---------------------------
+@mixin bpMax($point) {
+  @if $point == wide {
+    @media screen and (max-width: 80em) { @content ; }
+  }
+  @else if $point == pc {
+    @media screen and (max-width: 64em) { @content ; }
+  }
+  @else if $point == tablet {
+    @media screen and (max-width: 48em) { @content ; }
+  }
+  @else if $point == mobile {
+    @media screen and (max-width: 35.5em)  { @content ; }
+  }
+  @else {
+    @media screen and (max-width: $point) { @content ; }
+  }
+}
+
+@mixin bpMin($point) {
+  @if $point == wide {
+    @media screen and (min-width: 80em) { @content ; }
+  }
+  @else if $point == pc {
+    @media screen and (min-width: 64em) { @content ; }
+  }
+  @else if $point == tablet {
+    @media screen and (min-width: 48em) { @content ; }
+  }
+  @else if $point == mobile {
+    @media screen and (min-width: 35.5em)  { @content ; }
+  }
+  @else {
+    @media screen and (min-width: $point) { @content ; }
+  }
+}

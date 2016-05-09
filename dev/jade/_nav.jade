@@ -1,0 +1,49 @@
+//- nav
+// .gnav
+- var navClass;
+- if(manuObjs[0].flag) {
+  - navClass = "gnav";
+- }else{
+  - navClass = "gnav is-gnav_fix";
+-}
+nav(class=navClass)
+    //- p.spbtns: span メニュー
+    ul.gnav-list
+        -for(var i=0; i<manuObjs.length; i++) {
+          - var classNames = 'gnav-item_' + manuObjs[i].className
+          - var att = 'gnav-item ' + classNames;
+          -if(i == 0) {
+            - att = classNames;
+          -}
+          -if(manuObjs[i].flag) {
+            - att += ' is-gnav_on';
+          -}
+          -if(manuObjs[i].submenu) {
+            - att += ' is-gnav_submenu';
+          -}
+          li(class=att)
+            a(href='#{manuObjs[i].href}')
+              -if(i>0) {
+                div.gnav-item_icon !{manuObjs[i].src}
+                div.gnav-item_names #{manuObjs[i].name}
+              -}else{
+                div.gnav-item_names #{manuObjs[i].name}
+              -}
+            -if(manuObjs[i].submenu) {
+              - var subAttr;
+              - if(manuObjs[i].className == 'about') {
+                - subAttr = about_subObjs;
+              -}else if(manuObjs[i].className == 'intro') {
+                - subAttr = intro_subObjs;
+              -}else {
+                - subAttr = reserve_subObjs;
+              -}
+              - var subAttrLength = subAttr.length;
+              - var subulattr = 'gnav-submenu ' + manuObjs[i].className + '-submenu gnav-submenu_' + subAttrLength;
+                ul(class=subulattr)
+                  -for(var sm=0; sm<subAttr.length; sm++) {
+                    li: a(href='#{subAttr[sm].href}') #{subAttr[sm].name}
+                  -}
+            -}
+        -}
+// /.gnav

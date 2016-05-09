@@ -1,0 +1,61 @@
+//common.scss
+
+
+@charset 'utf-8';
+
+
+
+$basefontSize:1.6;//rem計算
+$secondFontSize: 1.4;//rem計算
+
+$basefontColors:#0a0a0a;
+$baseLinkColors:#fff;
+$baseBgColor:#00104a;
+
+@mixin fas {
+    font-family: FontAwesome;
+}
+
+@mixin cf {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 157px;
+    padding: 0;
+    font-size: $basefontSize + em;
+    line-height: 1.6;
+    color: $basefontColors;
+    font-family: Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol,li {
+    margin: 0;
+}
+
+a {
+    color: $baseLinkColors;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cf:after {
+    @include cf;
+}

@@ -1,0 +1,40 @@
+- var titles = "page title";
+- var description = "description is beatiful";
+- var keywords = "keywords1,keywords2";
+- var homepage = 'http://localhost';
+- var htmlogp = false;
+- var regIE = false;
+- var gnav = [];
+- gnav.push({flag: false, className: "top",name: "トップ", href: '/',src: '',parent: true,submenu: false});
+
+doctype html
+//- html.no-js(xmlns:og='http://ogp.me/ns#', xmlns:fb='https://www.facebook.com/2008/fbml',lang='ja')
+html(lang='ja')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport',content='width=device-width,initial-scale=1')
+    block title
+      title titles
+    block meta
+      meta(http-equiv='X-UA-Compatible',content='IE=edge')
+      meta(name='format-detaction',cotnent='telephone=no')
+      meta(name='description', content=description)
+      meta(name='keywords', content=keywords)
+    block links
+      link(rel='stylesheet', href='css/normalize.css')
+      link(rel='stylesheet',href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+      link(rel='stylesheet',href='css/common.css')
+
+    if regIE
+      // IE setting
+      <!--[if lt IE 9]>
+      script(src='js/html5shiv.min.js')
+      script(src='js/selectivizr-min.js')
+      <![endif]-->
+      // IE setting end
+
+  body
+    block body
+    
+    include _footer
+    include _inc_jsset
